@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <!-- <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>-->
+
+    <color name="colorPrimary">#ff5722</color>
+    <color name="colorPrimaryDark">#e64a19</color>
+    <color name="primary_light">#FFCCBC</color>
+    <color name="colorAccent">#ff9800</color>
+
+ <!--FOR MANAGER THEME-->
+ <color name="colorPrimary2">#8f2706</color>
+ <color name="colorPrimaryDark2">#e64a19</color>
+ <color name="primary_light2">#FFCCBC</color>
+ <color name="colorAccent2">#cc7c05</color>
+    <color name="backGrounManager">#234d0f0e</color>
+  <!--FINISH-->
+
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
+    <color name="colorFAB1">#2196f3</color>
+    <color name="colorFAB2">#E040FB</color>
+
+
+ <color name="black_semi_transparent">#B2000000</color>
+ <color name="background">#e5e5e5</color>
+ <color name="half_black">#808080</color>
+ <color name="white">#fafafa</color>
+ <color name="white_pressed">#f1f1f1</color>
+ <color name="pink">#e91e63</color>
+ <color name="pink_pressed">#ec407a</color>
+ <color name="blue_semi_transparent">#f25677fc</color>
+ <color name="blue_semi_transparent_pressed">#80738ffe</color>
+ <color name="colorNormalNewDelivery">#ff9800</color>
+ <color name="colorPressedNewDelivery">#ffc46d</color>
+    <color name="colorNormalNewFastRequest">#05B829</color>
+    <color name="colorPressedNewFastRequest">#8676f75d</color>
+ <color name="back_menu_open">#e4ffffff</color>
+
+<!-- colors for list Restaurant-->
+
+ <color name="item_active">#96ffa43d</color>
+ <color name="item_not_active">#8676f75d</color>
+ <color name="title_notify">#e81c600f</color>
+
+    <color name="list_back_normal">#ffffff</color>
+    <color name="list_back_press">#e8cfcfcf</color>
+
+</resources>
+

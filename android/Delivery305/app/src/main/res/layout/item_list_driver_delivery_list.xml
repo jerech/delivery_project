@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:http="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_gravity="center_horizontal|top"
+    android:padding="5dip"
+    android:id="@+id/item_layout_container"
+    FrameLayout:cardCornerRadius="20dip"
+    xmlns:FrameLayout="http://schemas.android.com/tools"
+    android:background="@drawable/selector_row">
+
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="90dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="45M"
+        android:id="@+id/tvTimeDrive"
+        android:background="@drawable/my_button_yellow"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_gravity="left|top"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/tvAddress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="10:05AM"
+        android:id="@+id/tvOnlineTime"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="right|top"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:textSize="13sp" />
+
+    <TextView
+        android:layout_width="203dp"
+        android:layout_height="38dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="190 fl 10009 Direction"
+        android:id="@+id/tvName"
+        android:layout_alignRight="@+id/tvOnlineTime"
+        android:layout_alignEnd="@+id/tvOnlineTime"
+        android:layout_below="@+id/tvOnlineTime"
+        android:layout_toEndOf="@+id/tvTimeDrive"
+        android:layout_toRightOf="@+id/tvTimeDrive"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_margin="5dp"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Restaurant:"
+        android:id="@+id/textView4"
+        android:layout_gravity="center_vertical|left"
+        android:textSize="11dp"
+        android:textStyle="bold"
+        android:layout_below="@+id/imageView_status"
+        android:layout_alignLeft="@+id/tvName"
+        android:layout_alignStart="@+id/tvName" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:id="@+id/imageView_status"
+        android:layout_gravity="right|bottom"
+        android:src="@drawable/ic_history_black_18dp"
+        android:layout_alignBottom="@+id/tvName"
+        android:layout_alignRight="@+id/tvOnlineTime"
+        android:layout_alignEnd="@+id/tvOnlineTime" />
+
+    <TextView
+        android:layout_width="238dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Josue Matsh"
+        android:id="@+id/tvAddress"
+        android:layout_alignRight="@+id/tvName"
+        android:layout_alignEnd="@+id/tvName"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_gravity="center_horizontal|bottom"
+        android:textSize="14sp"
+        android:layout_alignParentBottom="true"
+        android:maxLines="2"
+        android:minLines="2"
+        android:lines="2"
+        android:layout_below="@+id/textView4"
+        android:layout_alignLeft="@+id/tvName"
+        android:layout_alignStart="@+id/tvName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Address:"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_vertical|left"
+        android:textSize="12dp"
+        android:layout_above="@+id/tvName"
+        android:layout_alignLeft="@+id/tvName"
+        android:layout_alignStart="@+id/tvName"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:id="@+id/id_delivery"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:id="@+id/img_back" />
+
+</RelativeLayout>

@@ -1,0 +1,82 @@
+/*
+	2/25/2014
+	Useful in determining time to complete various tasks inside a php script.
+	Keeps track of time intervals in either milliseconds (by default) or microseconds from the Start to the Stop
+	with an unlimited number of intermediate, named intervals.
+	Start, stop, and interval entries may be given optional unique names.
+	When a start, stop, or interval name is not given, the class assigns a name beginning with ~.
+	To run the stop watch you need, as a minimum, to create the object and then call the Stop function.
+	You can create intervals anywhere the stopwatch object is visible in your script.
+	Individual intervals can be retrieved by name.
+	The array of intervals can be retrieved at any time.
+	Stop automatically returns the entire interval array.
+	The increments between intervals are saved in a name-value-pair (NvP) array
+	and are not deleted when the timer stops, so intervals and the entire array can be retrieved
+	after the timer is stopped and before another start is issued.
+	You need to have the following in your script.
+	include_once [path.] "StopWatchClass.php";
+	$watch = new stopwatch();
+	Copyright (C) 2014 Software Installation Services, Inc.
+	Author: Bob Wedwick, Phoenix, AZ 602-449-8552  bob at wedwick dot com.
+	This program is free software: you can redistribute it or modify it under the terms
+	of the GNU General Public License as published by the Free Software Foundation,
+	either version 3 of the License or any later version.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	See http://www.gnu.org/licenses/licenses.en.html for a copy of the GNU General Public License.
+	An example test php script for the stop watch class is in the script named TestStopWatch.php.
+	The output for the test script is in TestStopWatchOutput.txt
+	Script logic in the form of pseudocode is in StopWatchClass.php.pseudo.txt
+*/
+### class name is stopwatch
+	# initialize properties
+	# NvP array of time intervals
+	# elapsed microtime for the latest entry
+	# microtime when the stopwatch started
+### constructor
+	# start the timer by default
+# end function
+### make one entry with an ID name in the interval array - AddInterval($id, $oneTime= 0)
+	# enter the time for the named interval
+# end function
+### return all the intervals so far - AllIntervals()
+	# return the complete NvP interval array
+# end function
+### get the time for one named interval or the latest interval - GetNamedInterval($id = null)
+	# if $id name is null
+		# return the latest interval
+	# else if there is a $id name
+		# return the named interval
+	# else return 'no value'
+# end function
+### record the duration for one interval - Interval($id = null)
+	# get the current microtime
+	# if no $id name is given for the interval
+		# give it a counter interval name
+	# ....
+	# if starting the stop watch
+		# set start time interval to zero
+		# note the starting time
+	# else
+		# compute time since the prior interval
+		# if calling for microseconds round the time to microseconds otherwise to milliseconds
+	# ....
+	# add it to the interval array
+	# update the last interval time
+# end function
+### start or restart the interval timer - Start($id = null, $microseconds=false )
+	# reset the interval array
+	# if no $id name is sent call it '~start'
+	# set or clear the microsecond flag
+	# make the starting entry in the interval array
+# end function
+### stop timing and return the interval array - Stop($id = null)
+	# if no $id name is sent call it '~stopped'
+	# enter a stop interval time
+	# sum all intervals
+	# make a total time entry in the array
+	# return the complete array
+# end function
+# end class

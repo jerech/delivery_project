@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "396214147332",
+    "firebase_url": "https://delivery-305.firebaseio.com",
+    "project_id": "delivery-305",
+    "storage_bucket": "delivery-305.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396214147332:android:d068eb8fa82cd01b",
+        "android_client_info": {
+          "package_name": "com.paulpwo.delivery305"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "396214147332-nrdo2v9o1nsrj2ha580jbg4gpecl4i3a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVAomH_bv97J-cbXjg18t9yWUd7eT0LyA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

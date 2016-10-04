@@ -1,0 +1,11 @@
+Notify New Delivery:
+
+* title
+* type
+* body
+
+SQL SELECT dd.id, dd.address, dd.note, dd.time, dd.time_driver , dd.status , rr.name As restaurant, rr.id As IdRestaurant
+FROM deliverys As dd, restaurants As rr, drivers As dr WHERE dd.id_restaurant = rr.id AND dd.id_driver = dr.id
+
+next day:
+make Detail View And sniff notify by sender (timer asyck task)

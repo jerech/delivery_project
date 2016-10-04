@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.paulpwo.delivery305.driver.DriverNotifyNewDelivery"
+    tools:showIn="@layout/activity_driver_notify_new_delivery">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/txtBody"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="decline"
+        android:id="@+id/btnDecline"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/my_button_gray"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal|bottom" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:text="10 MINS"
+        android:id="@+id/btn10"
+        android:textSize="30dp"
+        android:background="@drawable/my_button_yellow"
+        android:textColor="@color/white"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/btn5"
+        android:layout_alignStart="@+id/btn5"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="15"
+        android:id="@+id/txtCount"
+        android:enabled="false"
+        android:textSize="35dp"
+        android:layout_above="@+id/btnDecline"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="65dp" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:text="15 MINS"
+        android:id="@+id/btn15"
+        android:textSize="30dp"
+        android:background="@drawable/my_button_orange"
+        android:textColor="@color/white"
+        android:layout_above="@+id/txtCount"
+        android:layout_alignLeft="@+id/btn10"
+        android:layout_alignStart="@+id/btn10"
+        android:layout_gravity="center"
+        android:layout_marginTop="90dp" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:text="5 Mins"
+        android:id="@+id/btn5"
+        android:textSize="30dp"
+        android:background="@drawable/my_button_green"
+        android:textColor="@color/white"
+        android:layout_below="@+id/txtBody"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="100dp" />
+
+</FrameLayout>

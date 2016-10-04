@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/main_view_menu"
+            android:icon="@drawable/ic_home_black_36dp"
+            android:title="Main" />
+    </group>
+
+
+
+    <item android:title="Admin">
+        <menu>
+            <item
+                android:id="@+id/nav_manage"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Profile" />
+            <item
+                android:id="@+id/nav_new_for_restaurant"
+                android:icon="@drawable/ic_fiber_new_black_18dp"
+                android:title="Delivery for Restaurant" />
+
+            <item
+                android:id="@+id/nav_block"
+                android:icon="@drawable/ic_block_black_18dp"
+                android:title="Block user" />
+        </menu>
+
+    </item>
+    <item android:title="Exit">
+        <menu>
+
+            <item
+                android:id="@+id/nav_exit"
+                android:icon="@drawable/ic_exit_to_app_red_400_18dp"
+                android:title="Exit" />
+            <!--<item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />-->
+        </menu>
+    </item>
+
+</menu>

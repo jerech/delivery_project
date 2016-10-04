@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.paulpwo.delivery305.base.ActivityDemo"
+    tools:showIn="@layout/activity_select_acount">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView2"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/back"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:scaleType="centerCrop"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:text="RESTAURANT"
+        android:id="@+id/btnRestaurant"
+        android:background="@drawable/my_button_orange"
+        android:textColor="@color/button_material_light"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_marginTop="77dp"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:hint="Restaurant Login" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:text="DRIVER"
+        android:id="@+id/btnDriver"
+        android:background="@drawable/my_button_yellow"
+        android:textColor="@color/button_material_light"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:width="150dp"
+        android:layout_below="@+id/btnRestaurant"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp" />
+
+    <!--<Button
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:text="MANAGER"
+        android:id="@+id/btnManager"
+        android:background="@drawable/my_button_blue"
+        android:textColor="@color/button_material_light"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:width="150dp"
+        android:layout_below="@+id/btnDriver"
+        android:layout_gravity="center_horizontal|left"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp" />-->
+
+    <TextView android:id="@+id/btn_Sing_Up_New_User"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="New user? Sing up"
+        android:gravity="center"
+        android:textSize="18dip"
+        android:paddingBottom="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textIsSelectable="false"
+        android:textColor="@color/abc_primary_text_material_dark"
+        android:layout_marginTop="10dp" />
+
+</RelativeLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.paulpwo.delivery305.manager.Manager_detail_driver"
+    tools:showIn="@layout/activity_manager_detail_driver">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_light_background"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="30dp">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:id="@+id/imageDriver"
+            android:layout_gravity="center_horizontal"
+            android:src="@android:drawable/ic_dialog_alert"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/name"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:lines="2"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:gravity="center_vertical" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Driver address:"
+            android:id="@+id/textView5"
+            android:layout_below="@+id/driver_address"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/driver_address"
+            android:gravity="left"
+            android:lines="3"
+            android:layout_below="@+id/name"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="15sp" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:text="Call to Driver"
+            android:id="@+id/btnCallDriver"
+            android:layout_below="@+id/tvOnlineTime"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/my_button_orange"
+            android:textColor="@color/white"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="5dp"
+            android:drawableLeft="@drawable/ic_call_white_24dp"
+            />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:text="Finish"
+            android:id="@+id/btnFinish"
+            android:background="@drawable/my_button_gray"
+            android:textColor="@color/white"
+            android:layout_below="@+id/btnCallDriver"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="5dp"
+            android:drawableLeft="@drawable/ic_stars_white_24dp"
+            android:visibility="invisible" />
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:id="@+id/id_delivery"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
+</ScrollView>

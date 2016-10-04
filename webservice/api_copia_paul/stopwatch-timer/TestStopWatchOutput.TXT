@@ -1,0 +1,50 @@
+Output from TestStopWatch.php running as a console job with time in milliseconds.
+
+for-loop done = 0.043
+1 second later = 1.002
+2 seconds later = 2.001
+junk = no value
+Array
+(
+    [testing] => 0
+    [1 second later] => 1.002
+    [2 seconds later] => 2.001
+    [for-loop done] => 0.043
+    [~interval 5] => 0
+)
+Array
+(
+    [testing] => 0
+    [1 second later] => 1.002
+    [2 seconds later] => 2.001
+    [for-loop done] => 0.043
+    [~interval 5] => 0
+    [last] => 1.001
+    [~total time] => 4.047
+)
+
+-------------
+Output from TestStopWatch.php running as a console job with time in microseconds.
+
+for-loop done = 0.048297
+1 second later = 1.001019
+2 seconds later = 2.001963
+junk = no value
+Array
+(
+    [testing] => 0
+    [1 second later] => 1.001019
+    [2 seconds later] => 2.001963
+    [for-loop done] => 0.048297
+    [~interval 5] => 0.000146
+)
+Array
+(
+    [testing] => 0
+    [1 second later] => 1.001019
+    [2 seconds later] => 2.001963
+    [for-loop done] => 0.048297
+    [~interval 5] => 0.000146
+    [last] => 1.001155
+    [~total time] => 4.05258
+)

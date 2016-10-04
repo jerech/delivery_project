@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Circle">
+        <attr name="showText" format="boolean" />
+        <attr name="size" format="integer"> </attr>
+        <attr name="stroke" format="integer"> </attr>
+        <attr name="color" format="color"> </attr>
+        <attr name="initAngle" format="integer"> </attr>
+    </declare-styleable>
+</resources>
