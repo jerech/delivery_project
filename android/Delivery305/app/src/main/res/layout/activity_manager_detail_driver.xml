@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.paulpwo.delivery305.manager.Manager_detail_driver">
+    tools:context="com.paulpwo.delivery360.manager.Manager_detail_driver">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

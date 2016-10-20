@@ -16,6 +16,10 @@
                 android:id="@+id/nav_manage"
                 android:icon="@drawable/ic_menu_manage"
                 android:title="Profile" />
+            <!--<item
+                android:id="@+id/nav_deliveries_history"
+                android:icon="@drawable/ic_assessment_black"
+                android:title="Stats Deliveries" />-->
             <item
                 android:id="@+id/nav_new_for_restaurant"
                 android:icon="@drawable/ic_fiber_new_black_18dp"

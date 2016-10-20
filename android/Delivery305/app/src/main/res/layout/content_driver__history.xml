@@ -10,8 +10,21 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.paulpwo.delivery305.driver.Driver_History"
+    tools:context="com.paulpwo.delivery360.driver.Driver_History"
     tools:showIn="@layout/activity_driver__history">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_dialog_calendar"
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/my_recycler_view_history"
@@ -19,6 +32,6 @@
         android:layout_height="match_parent"
         android:scrollbars="vertical"
         android:layout_marginBottom="45dp"
-        android:layout_marginTop="35dp" />
-
+        android:layout_marginTop="5dp" />
+    </LinearLayout>
 </android.support.v4.widget.SwipeRefreshLayout>

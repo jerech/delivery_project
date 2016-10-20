@@ -141,11 +141,5 @@
         android:layout_height="1dp"
         android:visibility="invisible"
         android:id="@+id/id"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="#000000"
-        android:layout_marginTop="3dp"
-        android:layout_alignBottom="@+id/textView10"/>
 
 </RelativeLayout>

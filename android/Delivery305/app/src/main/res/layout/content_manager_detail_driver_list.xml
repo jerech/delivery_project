@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.paulpwo.delivery305.manager.ManagerDetailDriverList"
+    tools:context="com.paulpwo.delivery360.manager.ManagerDetailDriverList"
     tools:showIn="@layout/activity_manager_detail_driver_list">
 
 </RelativeLayout>

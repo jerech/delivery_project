@@ -15,7 +15,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="false"
-    tools:context="com.paulpwo.delivery305.main.MainActivity2">
+    tools:context="com.paulpwo.delivery360.main.MainActivity2">
     <Button
         android:id="@+id/start"
         android:layout_width="40dp"

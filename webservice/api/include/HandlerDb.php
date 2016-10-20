@@ -624,9 +624,10 @@ class HandlerDb {
         $this->conn->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
 
         $sql = "SELECT dd.id, dd.address, dd.note, DATE_FORMAT( dd.time,'%b %d %Y %h:%i %p') As time, dd.time_driver , dd.status ,
-                      dd.id_restaurant, dd.id_driver, rr.name As restaurant, rr.address As restaurant_address, rr.phone As phone_restaurant
-                      FROM deliverys As dd, restaurants As rr
-                      WHERE dd.id_restaurant = rr.id  AND dd.id = '$id_delivery' ";
+                      dd.id_restaurant, dd.id_driver, rr.name As restaurant, rr.phone As phone_restaurant, rr.address As restaurant_address
+                      FROM deliverys As dd
+                      left join restaurants as rr on rr.id=dd.id_restaurant
+                      WHERE dd.id = '$id_delivery' ";
 
         $stmt = $this->conn->prepare($sql);
         if ($stmt->execute()) {
@@ -637,7 +638,7 @@ class HandlerDb {
         }
 
     }
-    public function getDriverWorkingList() {
+    public function getDriverWorkingList(){
         $this->conn->query("SET NAMES utf8");
         $this->conn->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
 
@@ -653,7 +654,7 @@ class HandlerDb {
                       FROM drivers AS dd
                       INNER JOIN deliverys
                       ON dd.id = deliverys.id_driver
-                      WHERE deliverys.status = 1 and dd.status = 1
+                      WHERE dd.status = 1
                       GROUP BY id_driver
                       ORDER By count_delierys DESC ";
 
@@ -750,13 +751,63 @@ class HandlerDb {
 
             }*/
 
+            $array = array();
+            foreach ($editRowFinal as $key => $value) {
+                if($value['count_delierys']!=0){
+                    $array[]=$value;
+                }
+            }
 
 
 
-            return $editRowFinal;
+
+            return $array;
         } else {
             return NULL;
         }
+
+    }
+
+
+    public function getDriverWorkingList2(){
+        $this->conn->query("SET NAMES utf8");
+        $this->conn->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
+
+        $sql = "SELECT
+                      dd.id,
+                       dd.first_name,
+                       dd.last_name,
+                       dd.address,
+                       dd.phone,
+                       dd.email,
+                      DATE_FORMAT( dd.date_online,'%h:%i %p') As date_online
+                      FROM drivers AS dd
+                      WHERE dd.status = 1
+                      GROUP By dd.id
+                      ORDER By dd.first_name ASC ";
+
+        $stmt = $this->conn->prepare($sql);
+        if ($stmt->execute()) {  
+            $editRow=$stmt->fetchAll(PDO::FETCH_ASSOC);          
+            $array = array();
+            foreach ($editRow as $key => $value) {
+                $sql="select count(id_driver) as count_delierys from deliverys where status=1 and id_driver=".$value['id'];
+                $stmt = $this->conn->prepare($sql);
+                if ($stmt->execute()) {  
+                     $row=$stmt->fetchAll(PDO::FETCH_ASSOC); 
+                     $value['count_delierys'] = $row[0]['count_delierys'];
+                     $array[]=$value;         
+                }  
+            } 
+
+
+
+       
+            return $array;
+        } else {            
+            return NULL;
+        }
+        return $editRow;
 
     }
 
@@ -946,13 +997,92 @@ class HandlerDb {
         }
         return $editRow;
     }
+
+    public function getDeliverysHistory2($id_restaurant,$start_date,$end_date) {
+        $this->conn->query("SET NAMES utf8");
+        $this->conn->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
+        $sql = "SELECT id,
+                      id_restaurant,
+                      address As delivery_address,
+                      note,
+                      DATE_FORMAT(time,'%b %d %Y %h:%i %p') As time,
+                      id_driver,
+                      name_driver,
+                      time_driver,
+                      status FROM deliverys WHERE status = 0 AND id_restaurant = ".$id_restaurant." 
+                      AND time<'".$end_date."' AND time>'".$start_date."'
+                       ORDER By id DESC LIMIT " .LIMIT_HISTORY ;
+
+        $stmt = $this->conn->prepare($sql);
+        //$stmt->bindparam(":id", $id_restaurant);
+
+        if ($stmt->execute()) {
+            $editRow=$stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $editRow;
+        } else {
+            return NULL;
+        }
+        return $editRow;
+    }
+
     public function getDeliverysHistoryDriver($id_driver) {
         $this->conn->query("SET NAMES utf8");
         $this->conn->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
 
-        $stmt = $this->conn->prepare("SELECT * FROM deliverys WHERE status = 0 AND id_driver = :id
-                                          ORDER By time DESC LIMIT " . LIMIT_HISTORY);
+        $stmt = $this->conn->prepare("SELECT dd.id, dd.address, dd.note, DATE_FORMAT( dd.time,'%b %d %Y %h:%i %p') As time, dd.time_driver , dd.status ,
+                      dd.id_restaurant, dd.id_driver, rr.name As restaurant, rr.phone As phone_restaurant, rr.address As restaurant_address 
+                      FROM deliverys as dd
+                                        left join restaurants as rr on rr.id=dd.id_restaurant
+                                        WHERE dd.status = 0 AND dd.id_driver = :id
+                                          ORDER By dd.time DESC LIMIT " . LIMIT_HISTORY);
         $stmt->bindparam(":id", $id_driver);
+
+        if ($stmt->execute()) {
+            $editRow=$stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $editRow;
+        } else {
+            return NULL;
+        }
+        return $editRow;
+    }
+
+    public function getDeliverysHistoryDriver2($id_driver,$start_date, $end_date) {
+        $this->conn->query("SET NAMES utf8");
+        $this->conn->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
+
+        $stmt = $this->conn->prepare("SELECT dd.id, dd.address, dd.note, DATE_FORMAT( dd.time,'%b %d %Y %h:%i %p') As time, dd.time_driver , dd.status ,
+                      dd.id_restaurant, dd.id_driver, rr.name As restaurant, rr.phone As phone_restaurant, rr.address As restaurant_address 
+                      FROM deliverys as dd
+                                        left join restaurants as rr on rr.id=dd.id_restaurant
+                                        WHERE dd.status = 0 AND dd.id_driver = ".$id_driver." AND dd.time<'".$end_date."' AND dd.time>'".$start_date."'
+                                ORDER By dd.time DESC LIMIT " . LIMIT_HISTORY);
+        //$stmt->bindparam(":id", $id_driver);
+
+        if ($stmt->execute()) {
+            $editRow=$stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $editRow;
+        } else {
+            return NULL;
+        }
+        return $editRow;
+    }
+
+        public function getDeliverysHistoryManager($start_date, $end_date) {
+        $this->conn->query("SET NAMES utf8");
+        $this->conn->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
+
+        $stmt = $this->conn->prepare("SELECT d.id,
+                      d.id_restaurant,
+                      d.address As delivery_address,
+                      d.note,
+                     d.time,
+                      d.id_driver,
+                      d.name_driver,
+                      d.time_driver,
+                      d.status, r.name as name_restaurant FROM deliverys as d 
+                                                inner join restaurants as r on r.id=d.id_restaurant WHERE d.status = 0 AND d.time<'".$end_date."' AND d.time>'".$start_date."'
+                                          ORDER By time DESC");
+       // $stmt->bindparam(":id", $id_driver);
 
         if ($stmt->execute()) {
             $editRow=$stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -965,8 +1095,9 @@ class HandlerDb {
 
 
 
+
     public function getDeliverysFree() {
-        //$this->conn->query("SET NAMES utf8");
+        $this->conn->query("SET NAMES utf8");
         $this->conn->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
         $sql="SELECT
         dd.id, dd.address, dd.note, DATE_FORMAT( dd.time,'%b %d %Y %h:%i %p') As time,  dd.id_restaurant, dd.status,
@@ -983,6 +1114,9 @@ class HandlerDb {
         }
         return $editRow;
     }
+
+
+
 
     public function getDeliverysFreeCount() {
         //$this->conn->query("SET NAMES utf8");

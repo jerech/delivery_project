@@ -257,6 +257,23 @@ $app->get('/driversWorkingList', function() {
 
 });
 
+$app->get('/driversWorkingList2', function() {
+    $response = array();
+    $db = new HandlerDb();
+
+    $result = $db->getDriverWorkingList2();
+
+    if ($result != NULL) {
+        echoRespnse(200, $result);
+    } else {
+        $response["error"] = true;
+        $response["message"] = "The requested resource doesn't exists!!!";
+        echoRespnse(404, $response);
+    }
+
+});
+
+
 $app->post('/driversChooseDelivery', function() use ($app) {
 
     verifyRequiredParams(array('id_delivery', 'id_driver', 'name_driver','timer_driver'));

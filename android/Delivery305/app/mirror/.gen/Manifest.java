@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.paulpwo.delivery305;
+package com.paulpwo.delivery360;
 
 public final class Manifest {
     public static final class permission {

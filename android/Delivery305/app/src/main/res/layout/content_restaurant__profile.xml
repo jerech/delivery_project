@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.paulpwo.delivery305.restaurant.Restaurant_Profile"
+    tools:context="com.paulpwo.delivery360.restaurant.Restaurant_Profile"
     tools:showIn="@layout/activity_restaurant__profile">
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"

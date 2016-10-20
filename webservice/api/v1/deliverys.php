@@ -152,6 +152,24 @@ $app->get('/deliverysHistory/:id', function($id)  {
         echoRespnse(404, $response);
     }
 });
+$app->get('/deliverysHistory2/:id/:start_date/:end_date', function($id,$start_date,$end_date)  {
+    //global $user_id;
+
+    $response = array();
+    $db = new HandlerDb();
+
+    // fetch task
+    $result2 = $db->getDeliverysHistory2($id,$start_date,$end_date);
+
+
+    if ($result2 != NULL) {
+        echoRespnse(200, $result2);
+    } else {
+        $response["error"] = true;
+        $response["message"] = "The requested resource doesn't exists!!!";
+        echoRespnse(404, $response);
+    }
+});
 $app->get('/deliverysHistoryDriver/:id', function($id)  {
     //global $user_id;
 
@@ -160,6 +178,47 @@ $app->get('/deliverysHistoryDriver/:id', function($id)  {
 
     // fetch task
     $result2 = $db->getDeliverysHistoryDriver($id);
+
+    if ($result2 != NULL) {
+        echoRespnse(200, $result2);
+    } else {
+        $response["error"] = true;
+        $response["message"] = "The requested resource doesn't exists!!!";
+        echoRespnse(404, $response);
+    }
+});
+
+$app->get('/deliverysHistoryDriver2/:id/:start_date/:end_date', function($id,$start_date,$end_date)  {
+    //global $user_id;
+
+    $response = array();
+    $db = new HandlerDb();
+
+    // fetch task
+    $result2 = $db->getDeliverysHistoryDriver2($id,$start_date,$end_date);
+
+    if ($result2 != NULL) {
+        echoRespnse(200, $result2);
+    } else {
+        $response["error"] = true;
+        $response["message"] = "The requested resource doesn't exists!!!";
+        echoRespnse(404, $response);
+    }
+});
+$app->get('/deliverysHistoryManager/:start_date/:end_date', function($start_date, $end_date)  {
+    //global $user_id;
+
+    $db = new HandlerDb();
+
+   // verifyRequiredParams(array( 'start_date','end_date'));     // Chequea que parametros existan
+
+    $response = array();
+    // Generar Paamatros
+   // $end_date = $app->request->post('end_date');
+   // $start_date = $app->request->post('start_date');
+
+    // fetch task
+    $result2 = $db->getDeliverysHistoryManager($start_date,$end_date);
 
 
     if ($result2 != NULL) {
@@ -191,6 +250,26 @@ $app->get('/deliveriesFree', function()  {
 
 
 });
+
+$app->get('/deliveriesFree2', function()  {
+     $response = array();
+    $db = new HandlerDb();
+
+    // fetch task
+    $result2 = $db->getDeliverysFree();
+
+
+    if ($result2 != NULL) {
+        echoRespnse(200, $result2);
+    } else {
+        $response["error"] = true;
+        $response["message"] = "The requested resource doesn't exists!!!";
+        echoRespnse(200, array());
+    }
+
+
+});
+
 
 $app->get('/deliveriesFreeCount', function()  {
     $response = array();
