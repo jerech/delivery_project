@@ -8,6 +8,7 @@ public class Constants {
 
     //public final static String BASE_URL = "http://debug.marcanoyasociados.com/api/v1";
     //public final static String BASE_URL = "http://192.168.0.106/api/v1";
+    //public final static String BASE_URL = "http://deliveryeveryday.com/api_develop/v1";
     public final static String BASE_URL = "http://deliveryeveryday.com/api/v1";
 
     public final static String BASE_URL_DRIVER_LOGOUT = BASE_URL + "/logoutDriver";
@@ -56,6 +57,12 @@ public class Constants {
     public static final String phone = "phone";
     public static final String image_url = "image_url";
     public static final String created_At = "created_At";
+
+    public static final String email_receive = "email_receive";
+    public static final String keywords_subject = "keywords_subject";
+    public static final String pass_email_receive = "pass_email_receive";
+    public static final String emails_to_receive = "emails_to_receive";
+    public static final String all_emails_to_receive = "all_emails_to_receive";
 
     public static final Integer NOTIFY_TIME_OUT = 10000;
     public static final Integer NOTIFY_ID_NEW_DELIVERY = 912934;

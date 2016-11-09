@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -65,7 +66,7 @@ public class Restaurant_detail_driver extends BaseSpiceActivity {
         driverName.setText(deliverys.getFirst_name() + " " + deliverys.getLast_name());
         phone_driver.setText(deliverys.getPhone());
         deliveryAddress.setText(deliverys.getDelivery_address());
-        txtNote.setText(deliverys.getNote());
+        txtNote.setText(Html.fromHtml(deliverys.getNote()));
         tvTime.setText(deliverys.getTime());
 
 

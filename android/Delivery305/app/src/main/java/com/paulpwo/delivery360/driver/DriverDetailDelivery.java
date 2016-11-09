@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -49,6 +50,7 @@ public class DriverDetailDelivery extends BaseSpiceActivity implements publicOKh
     @BindView(R.id.btnCallDriver)     Button btnCallRestaurant;
     @BindView(R.id.btnFinish)     Button btnFinish;
     @BindView(R.id.btnChoose)     Button btnChoose;
+    @BindView(R.id.btnSeeFullNote) Button btnSeeFullNote;
 
 
     private String id;
@@ -68,7 +70,9 @@ public class DriverDetailDelivery extends BaseSpiceActivity implements publicOKh
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        id = getIntent().getExtras().getString("id");
+        if(getIntent().hasExtra("id")) {
+            id = getIntent().getExtras().getString("id");
+        }
         finish = getIntent().getExtras().getBoolean("finish");
 
         if(getIntent().hasExtra("delivery")){
@@ -214,9 +218,23 @@ public class DriverDetailDelivery extends BaseSpiceActivity implements publicOKh
         restaurantName.setText(response.getRestaurant());
         restaurantAddress.setText(response.getRestaurant_address());
         deliveryAddress.setText(response.getAddress());
-        txtNote.setText(response.getNote());
+        txtNote.setText(Html.fromHtml(response.getNote()));
         time.setText(response.getTime());
         delivery = response;
+
+        if(response.getNote().contains("<div>")){
+            btnSeeFullNote.setVisibility(View.VISIBLE);
+            btnSeeFullNote.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Llamamos al web View
+                    Intent intent = new Intent(DriverDetailDelivery.this, WebViewNoteDelivery.class);
+                    intent.putExtra("id", Integer.parseInt(id));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+            });
+        }
         //MARCAR PARA ESCONDER FINISH
 
        String tmp = Helpers.getInstance().readID(DriverDetailDelivery.this);

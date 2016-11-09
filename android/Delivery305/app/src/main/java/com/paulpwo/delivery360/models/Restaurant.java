@@ -16,6 +16,7 @@ public class Restaurant {
     public String api_key;
     public String image_url;
     public String created_at;
+    public String allEmailsPlatforms;
 
     public String getId() {
         return id;
@@ -79,6 +80,14 @@ public class Restaurant {
 
     public void setCreated_at(String created_at) {
         this.created_at = created_at;
+    }
+
+    public String getAllEmailsPlatforms() {
+        return allEmailsPlatforms;
+    }
+
+    public void setAllEmailsPlatforms(String allEmailsPlatforms) {
+        this.allEmailsPlatforms = allEmailsPlatforms;
     }
 
     @Override

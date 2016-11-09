@@ -16,6 +16,11 @@
                 android:id="@+id/nav_manage"
                 android:icon="@drawable/ic_menu_manage"
                 android:title="Profile" />
+
+            <item
+                android:id="@+id/nav_config_email"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Email config" />
             <!--<item
                 android:id="@+id/nav_deliveries_history"
                 android:icon="@drawable/ic_assessment_black"

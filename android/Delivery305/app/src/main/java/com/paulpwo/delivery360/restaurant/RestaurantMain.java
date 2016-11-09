@@ -108,7 +108,7 @@ public class RestaurantMain extends BaseFragmentSpice implements SwipeRefreshLay
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_restaurant_main, container, false);
         //setupList();
-        callWebService();
+        //callWebService();
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(this);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Delivery ED - RESTAURANT");
@@ -137,7 +137,7 @@ public class RestaurantMain extends BaseFragmentSpice implements SwipeRefreshLay
     @Override
     public void onStart() {
         super.onStart();
-        callWebService();
+        //callWebService();
 
     }
      // TODO: Rename method, update argument and hook method into UI event
@@ -305,7 +305,7 @@ public class RestaurantMain extends BaseFragmentSpice implements SwipeRefreshLay
     @Override
     public void onResume() {
         super.onResume();
-
+        callWebService();
 
 
     }

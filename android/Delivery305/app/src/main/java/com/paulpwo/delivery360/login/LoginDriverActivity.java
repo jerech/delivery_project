@@ -416,7 +416,7 @@ public class LoginDriverActivity extends BaseSpiceActivity implements LoaderCall
         @Override
         public void onRequestSuccess(Driver drivers) {
             mProgressView.setVisibility(View.INVISIBLE);
-            Log.v("Resul", drivers.toString());
+            Log.v("Result", drivers.toString());
             Helpers.getInstance().updateDriverLogin(getApplicationContext(),typeAccount,drivers);
 
             Intent ii = new Intent(getApplicationContext(), MainActivity2.class);

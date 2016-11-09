@@ -31,6 +31,7 @@ import com.paulpwo.delivery360.manager.ManagerMain;
 import com.paulpwo.delivery360.models.Driver;
 import com.paulpwo.delivery360.models.Manager;
 import com.paulpwo.delivery360.models.Restaurant;
+import com.paulpwo.delivery360.restaurant.RestaurantConfigEmail;
 import com.paulpwo.delivery360.restaurant.RestaurantMain;
 import com.paulpwo.delivery360.restaurant.Restaurant_Profile;
 
@@ -195,6 +196,12 @@ public class Helpers {
         Intent i = new Intent(c, Restaurant_Profile.class);
         c.startActivity(i);
     }
+
+    public void loadRestaurantConfigEmail(final FragmentActivity c){
+        Intent i = new Intent(c, RestaurantConfigEmail.class);
+        c.startActivity(i);
+    }
+
     public void loadNotifyNewDelivery(final Context c,
                                       String title,
                                       String body,
@@ -278,6 +285,66 @@ public class Helpers {
         SharedPreferences sharedPreferences = c.getSharedPreferences(Constants.MY_SHARE_PREFERENCES, c.MODE_PRIVATE);
         return  sharedPreferences.getInt(Constants.USER_STATUS, 0);
     }
+
+
+
+    //Data for receive delivries from Platforms
+    public String readEmailReceiveDeliveries(Context c){
+        SharedPreferences sharedPreferences = c.getSharedPreferences(Constants.MY_SHARE_PREFERENCES, c.MODE_PRIVATE);
+        return  sharedPreferences.getString(Constants.email_receive, "");
+    }
+    public String readPassEmailReceiveDeliveries(Context c){
+        SharedPreferences sharedPreferences = c.getSharedPreferences(Constants.MY_SHARE_PREFERENCES, c.MODE_PRIVATE);
+        return  sharedPreferences.getString(Constants.pass_email_receive, "");
+    }
+
+    public String readEmailsToReceiveDeliveries(Context c){
+        SharedPreferences sharedPreferences = c.getSharedPreferences(Constants.MY_SHARE_PREFERENCES, c.MODE_PRIVATE);
+        return  sharedPreferences.getString(Constants.emails_to_receive, "");
+    }
+
+    public String readAllEmailsToReceiveDeliveries(Context c){
+        SharedPreferences sharedPreferences = c.getSharedPreferences(Constants.MY_SHARE_PREFERENCES, c.MODE_PRIVATE);
+        return  sharedPreferences.getString(Constants.all_emails_to_receive, "");
+    }
+
+    public void setEmailReceiveDeliveries(Context context,String email){
+        SharedPreferences preferences=context.getSharedPreferences(Constants.MY_SHARE_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=preferences.edit();
+        editor.putString(Constants.email_receive,email);
+        editor.commit();
+    }
+
+    public String readKeywordsSubjectReceiveDeliveries(Context c){
+        SharedPreferences sharedPreferences = c.getSharedPreferences(Constants.MY_SHARE_PREFERENCES, c.MODE_PRIVATE);
+        return  sharedPreferences.getString(Constants.keywords_subject, "");
+    }
+
+    public void setKeywordsSubjectReceiveDeliveries(Context context,String keywords){
+        SharedPreferences preferences=context.getSharedPreferences(Constants.MY_SHARE_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=preferences.edit();
+        editor.putString(Constants.keywords_subject,keywords);
+        editor.commit();
+    }
+
+    public void setPassEmailReceiveDeliveries(Context context,String pass){
+        SharedPreferences preferences=context.getSharedPreferences(Constants.MY_SHARE_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=preferences.edit();
+        editor.putString(Constants.pass_email_receive,pass);
+        editor.commit();
+    }
+
+    public void setEmailsToReceiveDeliveries(Context context,String emails){
+        SharedPreferences preferences=context.getSharedPreferences(Constants.MY_SHARE_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=preferences.edit();
+        editor.putString(Constants.emails_to_receive,emails);
+        editor.commit();
+    }
+
+
+
+
+
 
     public void updateDriverLogin(final Context c ,Integer typeAccount,final  Driver result){
 
@@ -399,6 +466,7 @@ public class Helpers {
         // ESTORE EMAIL
         editor.putString(Constants.EMAIL_USER_LOGGED, result.getEmail());
         editor.putInt(Constants.TYPE_ACCOUNT_RESTAURAT, 1);
+        editor.putString(Constants.all_emails_to_receive, result.getAllEmailsPlatforms());
         //FOR PROFILE
         editor.putString(Constants.first_name,result.getName());
         editor.putString(Constants.address,result.getAddress());
@@ -564,6 +632,12 @@ public class Helpers {
                 .post(body)
                 .header("Authorization" , this.readApikey(c))
                 .build();
+
+        try {
+            client.newCall(request).execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         client.newCall(request).enqueue(new Callback() {

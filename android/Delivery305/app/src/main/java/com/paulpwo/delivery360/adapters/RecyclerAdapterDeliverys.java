@@ -196,7 +196,7 @@ public class RecyclerAdapterDeliverys extends RecyclerView.Adapter<RecyclerAdapt
         int size = this.deliverysList.size();
         if (size > 0) {
             for (int i = 0; i < size; i++) {
-                this.deliverysList.remove(0);
+                this.deliverysList.remove(i);
             }
 
             this.notifyItemRangeRemoved(0, size);

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -207,7 +208,7 @@ public class DetailDelivery extends BaseSpiceActivity implements publicOKhttp {
         restaurantName.setText(response.getRestaurant());
         restaurantAddress.setText(response.getRestaurant_address());
         deliveryAddress.setText(response.getAddress());
-        txtNote.setText(response.getNote());
+        txtNote.setText(Html.fromHtml(response.getNote()));
         time.setText(response.getTime());
         delivery = response;
         //MARCAR PARA ESCONDER FINISH

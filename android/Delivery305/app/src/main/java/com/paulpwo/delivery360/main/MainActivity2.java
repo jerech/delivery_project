@@ -1,6 +1,8 @@
 package com.paulpwo.delivery360.main;
 
 import android.Manifest;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -67,6 +69,7 @@ import com.paulpwo.delivery360.utils.CircleTransform;
 import com.paulpwo.delivery360.utils.Helpers;
 import com.paulpwo.delivery360.utils.HelpersMenuDriver;
 import com.paulpwo.delivery360.utils.MyService;
+import com.paulpwo.delivery360.utils.ServiceReadEmails;
 import com.paulpwo.delivery360.utils.db.QuotesDataSource;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -74,6 +77,7 @@ import com.squareup.picasso.Picasso;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -337,6 +341,9 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
             ICON__COUNTER.setVisibility(View.INVISIBLE);
 
 
+            reprogramServiceGetEmails();
+
+
 
 
         }else{
@@ -480,8 +487,9 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
 
         }
         if(typeAccount == 2){
+            Menu nav_Menu = navigationView.getMenu();
+            nav_Menu.findItem(R.id.nav_config_email).setVisible(false);
             if(IsManager == 0 ){
-                Menu nav_Menu = navigationView.getMenu();
                 nav_Menu.findItem(R.id.nav_block).setVisible(false);
                 //nav_Menu.findItem(R.id.nav_deliveries_history).setVisible(false);
                 nav_Menu.findItem(R.id.nav_new_for_restaurant).setVisible(false);
@@ -976,6 +984,9 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
 
                     break;
             }
+
+        } else if(id==R.id.nav_config_email){
+            Helpers.getInstance().loadRestaurantConfigEmail(this);
 
         } else if (id == R.id.nav_block) {
             chooseBlock();
@@ -1765,6 +1776,24 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
 
                 // The directory is now empty so delete it
                 return dir.delete();
+            }
+
+
+
+            private void reprogramServiceGetEmails(){
+
+                 Calendar calendar = Calendar.getInstance();
+
+
+                Log.i("TAG", "Re program service");
+
+                AlarmManager alarm = (AlarmManager)getSystemService(ALARM_SERVICE);
+                alarm.set(
+                        alarm.RTC_WAKEUP,
+                        calendar.getTimeInMillis()+(1000*20),
+                        PendingIntent.getService(this, ServiceReadEmails.SERVICE_SYNC_ID, new Intent(this, ServiceReadEmails.class), 0)
+                );
+
             }
 
 

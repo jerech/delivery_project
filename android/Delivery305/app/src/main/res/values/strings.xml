@@ -42,6 +42,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_profile__drive">Profile</string>
     <string name="title_activity_restaurant__profile">Restaurant Profile</string>
+    <string name="title_activity_restaurant_config_email">Email Config</string>
     <string name="title_activity_restaurant__new__delivery">New Delivery</string>
     <string name="title_activity_driver_notify_new_delivery">New Delivery</string>
     <string name="title_activity_manager_notify_decline_delivery">Manage Notice
